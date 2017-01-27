@@ -22,7 +22,7 @@ public class ControleurCategories {
 
     }
 
-    public boolean ajouterImage(String nom, String description, InputStream url){
+    public boolean ajouterImage(String nom, String description, String url){
         return _categorie.addImage(nom, description, url);
     }
 
@@ -30,7 +30,7 @@ public class ControleurCategories {
         return _categorie.addAllImage(imageList);
     }
 
-    public boolean supprimerImage(String nom, String description, InputStream url){
+    public boolean supprimerImage(String nom, String description, String url){
         return _categorie.removeImage(nom, description, url);
     }
 

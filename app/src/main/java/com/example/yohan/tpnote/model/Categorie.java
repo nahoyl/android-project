@@ -20,7 +20,7 @@ public class Categorie {
         _liste = liste_p;
     }
 
-    public boolean addImage(String nom, String description, InputStream url){
+    public boolean addImage(String nom, String description, String url){
         Image p = new Image(nom, description, url);
         return _liste.add(p);
     }
@@ -29,7 +29,7 @@ public class Categorie {
         return _liste.addAll(imageList);
     }
 
-    public boolean removeImage(String nom, String description, InputStream url){
+    public boolean removeImage(String nom, String description, String url){
         Image p = new Image(nom, description, url);
         return _liste.remove(p);
     }
