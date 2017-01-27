@@ -11,12 +11,13 @@ import java.net.MalformedURLException;
 import java.net.URL;
 
 /**
- * Created by Yohan on 27/01/2017.
+ * Thread pour récupérer un flux depuis une page web.
  */
-
-public class AsyncURL extends AsyncTask<String, Void, InputStream> {
+public class AsyncURL extends AsyncTask<String, Void, InputStream>
+{
     @Override
-    protected InputStream doInBackground(String... params) {
+    protected InputStream doInBackground(String... params)
+    {
         String urlFichier = params[0];
         URL url;
         HttpURLConnection urlConnection;

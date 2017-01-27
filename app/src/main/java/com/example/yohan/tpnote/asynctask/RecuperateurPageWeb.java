@@ -38,9 +38,10 @@ public class RecuperateurPageWeb
 
     //Méthodes
     /**
-     * @return vrai si et seulement si $this est connecté à la page donnée, faux snon.
+     * @return vrai si et seulement si $this s'est connecté correctement
+     * à la page donnée, faux si une erreur est survenue.
      */
-    public boolean estConnecte()
+    public boolean pasDeProbleme()
     {
         return _aucunProbleme;
     }
@@ -49,7 +50,7 @@ public class RecuperateurPageWeb
     /**
      * @return le fichier XML située à l'adresse indiquée.
      */
-    public InputStream get_flux()
+    public InputStream getFlux()
     {
         return _flux;
     }
