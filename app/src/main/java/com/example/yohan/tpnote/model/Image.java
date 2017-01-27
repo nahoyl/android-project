@@ -13,7 +13,7 @@ public class Image {
 
     private String _nom;
     private String _description;
-    private Bitmap _url;
+    private String _url;
 
     public Image(){
         _nom = null;
@@ -21,10 +21,10 @@ public class Image {
         _url = null;
     }
 
-    public Image(String nom, String description, InputStream url){
+    public Image(String nom, String description, String url){
         _nom = nom;
         _description = description;
-        _url = BitmapFactory.decodeStream(url);
+        _url = url;
 
     }
 
@@ -36,7 +36,7 @@ public class Image {
         return _description;
     }
 
-    public Bitmap getUrl(){
+    public String getUrl(){
         return _url;
     }
 }

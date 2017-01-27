@@ -49,7 +49,7 @@ public class ModelAdapter extends ArrayAdapter<Image> {
         viewHolder.itemNom.setText(image.getNom());
         viewHolder.itemDescription.setText(image.getDescription());
         //Convertir to bitmap
-        viewHolder.itemImage.setImageBitmap(image.getUrl());
+        //viewHolder.itemImage.setImageBitmap(image.getUrl());
 
         return convertView;
 
