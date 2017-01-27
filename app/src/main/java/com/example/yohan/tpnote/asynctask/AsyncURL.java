@@ -46,7 +46,7 @@ public class AsyncURL extends AsyncTask<String, Void, InputStream> {
 
         return is;
     }
-
+    /*
     @Override
     protected void onPostExecute(InputStream result) {
         Log.i("HTTP GET","DONE");
@@ -54,4 +54,5 @@ public class AsyncURL extends AsyncTask<String, Void, InputStream> {
         XmlParser mapper = new XmlParser(); // XMLParser est une classe de valentin, je sais pas si on va en utliser une similair ou si ce code nous sera utile
         mapper.execute(result);
     }
+    */
 }

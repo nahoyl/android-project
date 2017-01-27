@@ -15,7 +15,7 @@ import java.util.List;
 
 public class SAXXMLHandler extends DefaultHandler {
 
-
+/*
     private List<Image> images;
     private String tempVal;
     private Image tempImg;
@@ -61,5 +61,6 @@ public class SAXXMLHandler extends DefaultHandler {
             tempImg.setEmail(tempVal);
         }
     }
+    */
 }
 

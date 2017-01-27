@@ -17,6 +17,7 @@ import javax.xml.parsers.SAXParserFactory;
  */
 
 public class SAXXMLParser {
+    /*
     public static List<Image> parse(InputStream is) {
         List<Image> employees = null;
         try {
@@ -39,4 +40,5 @@ public class SAXXMLParser {
         // return Employee list
         return employees;
     }
+*/
 }
