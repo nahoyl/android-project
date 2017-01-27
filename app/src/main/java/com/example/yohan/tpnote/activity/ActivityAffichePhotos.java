@@ -2,14 +2,12 @@ package com.example.yohan.tpnote.activity;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.ListView;
 
 import com.example.yohan.tpnote.R;
 import com.example.yohan.tpnote.adapter.ModelAdapter;
 import com.example.yohan.tpnote.asynctask.AsyncURL;
-import com.example.yohan.tpnote.controleir.ControleurCategories;
-import com.example.yohan.tpnote.model.Categorie;
+import com.example.yohan.tpnote.controleur.ControleurCategories;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
