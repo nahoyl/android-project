@@ -15,38 +15,26 @@ import java.net.URL;
  */
 public class AsyncURL extends AsyncTask<String, Void, InputStream>
 {
+    /**
+     * Récupère une page web d'url $params[0] et la convertit sous forme de flux.
+     * Termine l'application en cas de récupération échouée.
+     *
+     * @param params : doit contenir un et un seul élément, l'url de la page web à atteindre.
+     * @return le flux de la page web atteinte.
+     */
     @Override
     protected InputStream doInBackground(String... params)
     {
-        String urlFichier = params[0];
-        URL url;
-        HttpURLConnection urlConnection;
-        InputStream is;
+        RecuperateurPageWeb rpw = new RecuperateurPageWeb(params[0]);
 
-
-        try {
-            url = new URL(urlFichier);
-
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
-            url = null;
+        if (! rpw.pasDeProbleme()) {
+            Log.i("Erreur", rpw.getErreur());
+            System.exit(1);
         }
-
-        /*
-        if(url == null)
-            return null;
-        */
-
-        try {
-            urlConnection = (HttpURLConnection) url.openConnection();
-            is = new BufferedInputStream(urlConnection.getInputStream());
-        } catch (IOException e) {
-            e.printStackTrace();
-            is = null;
-        }
-
-        return is;
+        return rpw.getFlux();
     }
+
+    //TODO : faire une méthode onProgress (le TP demande une barre de progression).
     /*
     @Override
     protected void onPostExecute(InputStream result) {
