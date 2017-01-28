@@ -21,6 +21,7 @@ public class ModelAdapter extends ArrayAdapter<Image> {
 
     //protected LayoutInflater _layoutInflater;
     //protected Context _context;
+    List<Image> _listeImage;
 
     public ModelAdapter(Context context, List<Image> liste){
         super(context, 0 , liste);
@@ -49,7 +50,8 @@ public class ModelAdapter extends ArrayAdapter<Image> {
         viewHolder.itemNom.setText(image.getNom());
         viewHolder.itemDescription.setText(image.getDescription());
         //Convertir to bitmap
-        //viewHolder.itemImage.setImageBitmap(image.getUrl());
+        viewHolder.itemImage.setImageBitmap(image.getImgBmp());
+
 
         return convertView;
 

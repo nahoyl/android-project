@@ -5,26 +5,9 @@ import android.os.Bundle;
 import android.widget.ListView;
 
 import com.example.yohan.tpnote.R;
-import com.example.yohan.tpnote.XMLParser;
+import com.example.yohan.tpnote.asynctask.XMLParser;
 import com.example.yohan.tpnote.adapter.ModelAdapter;
-import com.example.yohan.tpnote.asynctask.AsyncURL;
 import com.example.yohan.tpnote.controleur.ControleurCategories;
-
-import org.w3c.dom.Attr;
-import org.w3c.dom.Document;
-import org.w3c.dom.Element;
-import org.w3c.dom.NamedNodeMap;
-import org.w3c.dom.Node;
-import org.w3c.dom.NodeList;
-
-import java.io.InputStream;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.concurrent.ExecutionException;
-import java.util.jar.Attributes;
-
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
 
 public class ActivityAffichePhotos extends AppCompatActivity {
 

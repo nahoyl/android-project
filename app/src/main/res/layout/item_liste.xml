@@ -6,7 +6,6 @@
         android:id="@+id/imageImage"
         android:layout_width="50dp"
         android:layout_height="50dp"
-
         />
 
     <TextView
@@ -18,8 +17,6 @@
         android:layout_toRightOf="@+id/imageImage"
         android:layout_alignTop="@+id/imageImage"
         android:textStyle="bold"
-
-
         />
 
     <TextView
@@ -29,7 +26,6 @@
         android:textColor="@android:color/black"
         android:layout_alignLeft="@+id/nomImage"
         android:layout_below="@+id/nomImage"
-
         />
 
 </RelativeLayout>
