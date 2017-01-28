@@ -13,7 +13,7 @@ import java.net.URL;
 /**
  * Thread pour récupérer un flux depuis une page web.
  */
-public class AsyncURL extends AsyncTask<String, Void, InputStream>
+public class DownloadXMLTask extends AsyncTask<String, Void, InputStream>
 {
     /**
      * Récupère une page web d'url $params[0] et la convertit sous forme de flux.

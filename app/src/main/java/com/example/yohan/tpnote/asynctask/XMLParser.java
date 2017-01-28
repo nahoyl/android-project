@@ -1,6 +1,5 @@
 package com.example.yohan.tpnote.asynctask;
 
-import com.example.yohan.tpnote.asynctask.AsyncURL;
 import com.example.yohan.tpnote.model.Image;
 
 import org.w3c.dom.Document;
@@ -25,7 +24,7 @@ public class XMLParser {
 
     public List<Image> parse(String[] urlPageWeb){
 
-        AsyncURL au = new AsyncURL();
+        DownloadXMLTask au = new DownloadXMLTask();
         au.execute(urlPageWeb);
         InputStream is = null;
 
