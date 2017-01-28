@@ -1,8 +1,6 @@
 package com.example.yohan.tpnote;
 
 import com.example.yohan.tpnote.asynctask.AsyncURL;
-import com.example.yohan.tpnote.controleir.ControleurCategories;
-import com.example.yohan.tpnote.model.Categorie;
 import com.example.yohan.tpnote.model.Image;
 
 import org.w3c.dom.Document;
@@ -59,11 +57,7 @@ public class XMLParser {
                     String nom = getValue("name", element2);
                     String desc = getValue("description", element2);
                     String url = gethrefValue("link", element2);
-                    /*
-                    liste.add(nom);
-                    liste.add(desc);
-                    liste.add(url);
-                    */
+
                     Image img = new Image(nom, desc, url);
                     liste_image.add(img);
                 }
