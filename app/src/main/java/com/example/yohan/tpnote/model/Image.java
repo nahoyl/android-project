@@ -4,10 +4,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.util.Log;
 
-import com.example.yohan.tpnote.asynctask.DownloadImageTask;
-
 import java.io.InputStream;
-import java.util.concurrent.ExecutionException;
 
 /**
  * Created by Yohan on 27/01/2017.
