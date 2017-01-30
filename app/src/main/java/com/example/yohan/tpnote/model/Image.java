@@ -1,9 +1,12 @@
 package com.example.yohan.tpnote.model;
 
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.util.Log;
 
 import com.example.yohan.tpnote.asynctask.DownloadImageTask;
 
+import java.io.InputStream;
 import java.util.concurrent.ExecutionException;
 
 /**
@@ -43,22 +46,27 @@ public class Image {
         return _url;
     }
 
+    public void setNom(String nom){_nom = nom;}
+
+    public void setDescription (String description){ _description = description;}
+
+    public void setUrl(String url) {
+        _url = url;
+        setImgBmp();
+    }
+
     public Bitmap getImgBmp() {
         return _imgBmp;
     }
 
     // Set la variable Bitmap _imgBmp avec le String _url de l'image.
     private void setImgBmp() {
-        // Pas sur qu'on devrait faire ça ici
-        DownloadImageTask dit = new DownloadImageTask();
-        String[] url = {_url};
-        dit.execute(url);
 
         try {
-            _imgBmp = dit.get();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        } catch (ExecutionException e) {
+            InputStream in = new java.net.URL(_url).openStream();
+            _imgBmp = BitmapFactory.decodeStream(in);
+        } catch (Exception e) {
+            Log.e("Error", e.getMessage());
             e.printStackTrace();
         }
 

@@ -5,24 +5,32 @@ import android.os.Bundle;
 import android.widget.ListView;
 
 import com.example.yohan.tpnote.R;
-import com.example.yohan.tpnote.asynctask.XMLParser;
+import com.example.yohan.tpnote.asynctask.DownloadXMLTask;
 import com.example.yohan.tpnote.adapter.ModelAdapter;
 import com.example.yohan.tpnote.controleur.ControleurCategories;
+import com.example.yohan.tpnote.model.Image;
+
+import java.util.List;
 
 public class ActivityAffichePhotos extends AppCompatActivity {
+
+    ControleurCategories ci = new ControleurCategories(ActivityAffichePhotos.this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_affiche_photos);
 
-        ControleurCategories ci = new ControleurCategories(ActivityAffichePhotos.this);
+        DownloadXMLTask dxt = new DownloadXMLTask(this);
+        dxt.execute();
+    }
 
-        String[] urlPageWeb = {"http://public.ave-comics.com/gabriel/iut/images.xml"};
+    public void initItemsData(List<Image> listImages) {
+        ci.ajouterTousImage(listImages);
+        lancerAdaptateur();
+    }
 
-        XMLParser xmlp = new XMLParser();
-        ci.ajouterTousImage(xmlp.parse(urlPageWeb));
-
+    private void lancerAdaptateur() {
         ListView mListView = (ListView)findViewById(R.id.mListView);
         ModelAdapter adapter = new ModelAdapter(ActivityAffichePhotos.this, ci.recupererListe());
         mListView.setAdapter(adapter);
