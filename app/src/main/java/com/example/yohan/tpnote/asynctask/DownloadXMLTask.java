@@ -3,7 +3,7 @@ package com.example.yohan.tpnote.asynctask;
 import android.app.ProgressDialog;
 import android.os.AsyncTask;
 
-import com.example.yohan.tpnote.activity.ActivityAffichePhotos;
+import com.example.yohan.tpnote.activity.ActivityMain;
 import com.example.yohan.tpnote.model.Image;
 
 import org.xml.sax.SAXException;
@@ -26,13 +26,13 @@ import javax.xml.parsers.SAXParserFactory;
 public class DownloadXMLTask extends AsyncTask<Void, Void, Void>
 {
 
-    private ActivityAffichePhotos _activity;
+    private ActivityMain _activity;
     private static final String _URL = "http://public.ave-comics.com/gabriel/iut/images.xml";
     private ProgressDialog _progressBar;
     private List<Image> _listeImages;
     private SAXXMLHandler _saxHandler;
 
-    public DownloadXMLTask(ActivityAffichePhotos activity) {
+    public DownloadXMLTask(ActivityMain activity) {
         this._activity = activity;
     }
 
@@ -77,7 +77,7 @@ public class DownloadXMLTask extends AsyncTask<Void, Void, Void>
     @Override
     protected void onPostExecute(Void aVoid) {
         _listeImages = _saxHandler.getImages();
-        _activity.initItemsData(_listeImages);
+        _activity.afficherListeImage(_listeImages);
         _progressBar.dismiss();
     }
 }

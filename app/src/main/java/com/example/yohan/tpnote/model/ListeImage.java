@@ -8,15 +8,14 @@ import java.util.List;
  * Created by Yohan on 27/01/2017.
  */
 
-public class Categorie {
+public class ListeImage {
     private List<Image> _liste;
-    private String _nomCat;
 
-    public Categorie(){
-        this._liste = new ArrayList<Image>();
+    public ListeImage(){
+        this._liste = new ArrayList<>();
     }
 
-    public Categorie(List<Image> liste_p){
+    public ListeImage(List<Image> liste_p){
         _liste = liste_p;
     }
 

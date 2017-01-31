@@ -2,10 +2,9 @@ package com.example.yohan.tpnote.controleur;
 
 import android.content.Context;
 
-import com.example.yohan.tpnote.model.Categorie;
+import com.example.yohan.tpnote.model.ListeImage;
 import com.example.yohan.tpnote.model.Image;
 
-import java.io.InputStream;
 import java.util.List;
 
 /**
@@ -13,28 +12,28 @@ import java.util.List;
  */
 
 public class ControleurCategories {
-    private Categorie _categorie;
+    private ListeImage _listeImage;
     private Context _context;
 
     public ControleurCategories(Context context){
         this._context = context;
-        _categorie = new Categorie();
+        _listeImage = new ListeImage();
 
     }
 
     public boolean ajouterImage(String nom, String description, String url){
-        return _categorie.addImage(nom, description, url);
+        return _listeImage.addImage(nom, description, url);
     }
 
     public boolean ajouterTousImage(List<Image> imageList){
-        return _categorie.addAllImage(imageList);
+        return _listeImage.addAllImage(imageList);
     }
 
     public boolean supprimerImage(String nom, String description, String url){
-        return _categorie.removeImage(nom, description, url);
+        return _listeImage.removeImage(nom, description, url);
     }
 
     public List<Image> recupererListe(){
-        return _categorie.getItemImage();
+        return _listeImage.getItemImage();
     }
 }

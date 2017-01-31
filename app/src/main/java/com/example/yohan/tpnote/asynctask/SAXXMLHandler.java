@@ -19,7 +19,7 @@ public class SAXXMLHandler extends DefaultHandler {
     private Image _tempImg;
 
     public SAXXMLHandler() {
-        _images = new ArrayList<Image>();
+        _images = new ArrayList<>();
     }
 
     public List<Image> getImages() {
@@ -33,10 +33,11 @@ public class SAXXMLHandler extends DefaultHandler {
         if (qName.equalsIgnoreCase("image")) {
             // create a new instance of employee
             _tempImg = new Image();
-        }
-        else if (qName.equalsIgnoreCase("link")){
+        } else if (qName.equalsIgnoreCase("link")) {
             String attributeValue = attributes.getValue("href");
             _tempImg.setUrl(attributeValue);
+        } else if (qName.equalsIgnoreCase("category")) {
+            _tempImg.addNomCategorie(attributes.getValue("label"));
         }
     }
 

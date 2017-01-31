@@ -10,10 +10,10 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.yohan.tpnote.activity.ActivityAffichePhotos">
 
-    <ListView
-        android:id="@+id/mListView"
+    <ImageView
+        android:id="@+id/imageZoom"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true" />
+        />
+
 </RelativeLayout>

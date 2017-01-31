@@ -5,6 +5,8 @@ import android.graphics.BitmapFactory;
 import android.util.Log;
 
 import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Yohan on 27/01/2017.
@@ -16,12 +18,14 @@ public class Image {
     private String _description;
     private String _url;
     private Bitmap _imgBmp;
+    private List<String> _nomCategorie;
 
     public Image() {
         _nom = null;
         _description = null;
         _url = null;
         _imgBmp = null;
+        _nomCategorie = new ArrayList<>();
     }
 
     public Image(String nom, String description, String url) {
@@ -43,6 +47,8 @@ public class Image {
         return _url;
     }
 
+    public List<String> getNomCategorie(){ return _nomCategorie; }
+
     public void setNom(String nom){_nom = nom;}
 
     public void setDescription (String description){ _description = description;}
@@ -51,6 +57,8 @@ public class Image {
         _url = url;
         setImgBmp();
     }
+
+    public void addNomCategorie(String nomCategorie) { _nomCategorie.add(nomCategorie); }
 
     public Bitmap getImgBmp() {
         return _imgBmp;

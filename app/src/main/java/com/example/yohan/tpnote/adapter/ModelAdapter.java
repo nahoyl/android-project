@@ -19,14 +19,8 @@ import java.util.List;
 
 public class ModelAdapter extends ArrayAdapter<Image> {
 
-    //protected LayoutInflater _layoutInflater;
-    //protected Context _context;
-    List<Image> _listeImage;
-
     public ModelAdapter(Context context, List<Image> liste){
         super(context, 0 , liste);
-        //_context = _context;
-        //_layoutInflater = LayoutInflater.from(_context);
     }
 
     @Override
