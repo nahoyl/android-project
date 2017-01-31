@@ -53,9 +53,10 @@ public class Image {
 
     public void setDescription (String description){ _description = description;}
 
-    public void setUrl(String url) {
+    public void setUrl(String url, boolean option) {
         _url = url;
-        setImgBmp();
+        if (option) // Option à true lance le décodage de l'url de l'image en bitmap
+            setImgBmp();
     }
 
     public void addNomCategorie(String nomCategorie) { _nomCategorie.add(nomCategorie); }

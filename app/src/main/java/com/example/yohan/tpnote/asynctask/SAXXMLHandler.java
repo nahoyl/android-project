@@ -31,11 +31,11 @@ public class SAXXMLHandler extends DefaultHandler {
                              Attributes attributes) throws SAXException {
 
         if (qName.equalsIgnoreCase("image")) {
-            // create a new instance of employee
+            // Nouvelle instance d'Image
             _tempImg = new Image();
         } else if (qName.equalsIgnoreCase("link")) {
             String attributeValue = attributes.getValue("href");
-            _tempImg.setUrl(attributeValue);
+            _tempImg.setUrl(attributeValue, true);
         } else if (qName.equalsIgnoreCase("category")) {
             _tempImg.addNomCategorie(attributes.getValue("label"));
         }
@@ -55,7 +55,5 @@ public class SAXXMLHandler extends DefaultHandler {
         } else if (qName.equalsIgnoreCase("description")) {
             _tempImg.setDescription(_tempVal);
         }
-
-
     }
 }

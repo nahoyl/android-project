@@ -1,15 +1,11 @@
 package com.example.yohan.tpnote.activity;
 
-import android.app.Activity;
 import android.content.Intent;
-import android.graphics.Bitmap;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.Menu;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.TextView;
 
 import com.example.yohan.tpnote.R;
 import com.example.yohan.tpnote.adapter.ModelAdapter;
@@ -17,13 +13,12 @@ import com.example.yohan.tpnote.asynctask.DownloadXMLTask;
 import com.example.yohan.tpnote.controleur.ControleurCategories;
 import com.example.yohan.tpnote.model.Image;
 
-import java.io.ByteArrayOutputStream;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.ExecutionException;
+
 
 public class ActivityMain extends AppCompatActivity {
 
+    private static final String _URL = "http://public.ave-comics.com/gabriel/iut/images.xml";
     ControleurCategories ci = new ControleurCategories(ActivityMain.this);
 
     @Override
@@ -33,7 +28,7 @@ public class ActivityMain extends AppCompatActivity {
 
         // Lancer le dl des images
         DownloadXMLTask dxt = new DownloadXMLTask(this);
-        dxt.execute();
+        dxt.execute(_URL);
     }
 
     public void afficherListeImage(List<Image> listImages) {
@@ -55,11 +50,5 @@ public class ActivityMain extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-    }
-
-
-    public void lancerZoom(View view) {
-        Intent intent = new Intent(this, ActivityAffichePhotos.class);
-        startActivity(intent);
     }
 }

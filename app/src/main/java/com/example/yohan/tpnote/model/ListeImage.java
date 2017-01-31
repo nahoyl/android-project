@@ -1,6 +1,5 @@
 package com.example.yohan.tpnote.model;
 
-import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 

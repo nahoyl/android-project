@@ -23,11 +23,9 @@ import javax.xml.parsers.SAXParserFactory;
 /**
  * Thread pour récupérer un flux depuis une page web.
  */
-public class DownloadXMLTask extends AsyncTask<Void, Void, Void>
+public class DownloadXMLTask extends AsyncTask<String, Void, Void>
 {
-
     private ActivityMain _activity;
-    private static final String _URL = "http://public.ave-comics.com/gabriel/iut/images.xml";
     private ProgressDialog _progressBar;
     private List<Image> _listeImages;
     private SAXXMLHandler _saxHandler;
@@ -39,7 +37,7 @@ public class DownloadXMLTask extends AsyncTask<Void, Void, Void>
     @Override
     protected void onPreExecute() {
         super.onPreExecute();
-
+        // Init de la progressBar
         _progressBar = new ProgressDialog(_activity);
         _progressBar.setTitle("Chargement des images");
         _progressBar.setMessage("Veuillez patienter");
@@ -49,12 +47,12 @@ public class DownloadXMLTask extends AsyncTask<Void, Void, Void>
     }
 
     @Override
-    protected Void doInBackground(Void... params)
+    protected Void doInBackground(String... params)
     {
         _saxHandler = new SAXXMLHandler();
 
         try {
-            URL url = new URL(_URL);
+            URL url = new URL(params[0]);
             HttpURLConnection httpUrl = (HttpURLConnection) url.openConnection();
             InputStream inputStream = new BufferedInputStream(httpUrl.getInputStream());
 
