@@ -25,19 +25,12 @@ import javax.xml.parsers.SAXParserFactory;
  */
 public class DownloadXMLTask extends AsyncTask<Void, Void, Void>
 {
-    /**
-     * Récupère une page web d'url $params[0] et la convertit sous forme de flux.
-     * Termine l'application en cas de récupération échouée.
-     *
-     * @param params : doit contenir un et un seul élément, l'url de la page web à atteindre.
-     * @return le flux de la page web atteinte.
-     */
 
     private ActivityAffichePhotos _activity;
-    public static final String URL = "http://public.ave-comics.com/gabriel/iut/images.xml";
-    public ProgressDialog progressBar;
-    private List<Image> _listImages;
-    private SAXXMLHandler saxHandler;
+    private static final String _URL = "http://public.ave-comics.com/gabriel/iut/images.xml";
+    private ProgressDialog _progressBar;
+    private List<Image> _listeImages;
+    private SAXXMLHandler _saxHandler;
 
     public DownloadXMLTask(ActivityAffichePhotos activity) {
         this._activity = activity;
@@ -46,28 +39,27 @@ public class DownloadXMLTask extends AsyncTask<Void, Void, Void>
     @Override
     protected void onPreExecute() {
         super.onPreExecute();
-        //Gestion de la progressBar
-        progressBar = new ProgressDialog(_activity);
-        progressBar.setTitle("Chargement des images");
-        progressBar.setMessage("Veuillez patienter");
-        progressBar.setIndeterminate(false);
-        progressBar.setCancelable(true);
-        progressBar.show();
+
+        _progressBar = new ProgressDialog(_activity);
+        _progressBar.setTitle("Chargement des images");
+        _progressBar.setMessage("Veuillez patienter");
+        _progressBar.setIndeterminate(false);
+        _progressBar.setCancelable(true);
+        _progressBar.show();
     }
 
     @Override
     protected Void doInBackground(Void... params)
     {
+        _saxHandler = new SAXXMLHandler();
 
-        URL url = null;
-        saxHandler = new SAXXMLHandler();
         try {
-            url = new URL(URL);
+            URL url = new URL(_URL);
             HttpURLConnection httpUrl = (HttpURLConnection) url.openConnection();
             InputStream inputStream = new BufferedInputStream(httpUrl.getInputStream());
 
             SAXParser saxParser = SAXParserFactory.newInstance().newSAXParser();
-            saxParser.parse(inputStream, saxHandler);
+            saxParser.parse(inputStream, _saxHandler);
 
         } catch (MalformedURLException e) {
             e.printStackTrace();
@@ -78,13 +70,14 @@ public class DownloadXMLTask extends AsyncTask<Void, Void, Void>
         } catch (IOException e) {
             e.printStackTrace();
         }
+
         return null;
     }
 
     @Override
     protected void onPostExecute(Void aVoid) {
-        _listImages = saxHandler.getImages();
-        _activity.initItemsData(_listImages);
-        progressBar.dismiss();
+        _listeImages = _saxHandler.getImages();
+        _activity.initItemsData(_listeImages);
+        _progressBar.dismiss();
     }
 }

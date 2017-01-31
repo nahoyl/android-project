@@ -14,16 +14,16 @@ import java.util.List;
  */
 
 public class SAXXMLHandler extends DefaultHandler {
-    private List<Image> images;
-    private String tempVal;
-    private Image tempImg;
+    private List<Image> _images;
+    private String _tempVal;
+    private Image _tempImg;
 
     public SAXXMLHandler() {
-        images = new ArrayList<Image>();
+        _images = new ArrayList<Image>();
     }
 
     public List<Image> getImages() {
-        return images;
+        return _images;
     }
 
     // Event Handlers
@@ -32,27 +32,27 @@ public class SAXXMLHandler extends DefaultHandler {
 
         if (qName.equalsIgnoreCase("image")) {
             // create a new instance of employee
-            tempImg = new Image();
+            _tempImg = new Image();
         }
         else if (qName.equalsIgnoreCase("link")){
             String attributeValue = attributes.getValue("href");
-            tempImg.setUrl(attributeValue);
+            _tempImg.setUrl(attributeValue);
         }
     }
 
     public void characters(char[] ch, int start, int length)
             throws SAXException {
-        tempVal = new String(ch, start, length);
+        _tempVal = new String(ch, start, length);
     }
 
     public void endElement(String uri, String localName, String qName)
             throws SAXException {
         if (qName.equalsIgnoreCase("image")) {
-            images.add(tempImg);
+            _images.add(_tempImg);
         } else if (qName.equalsIgnoreCase("name")) {
-            tempImg.setNom(tempVal);
+            _tempImg.setNom(_tempVal);
         } else if (qName.equalsIgnoreCase("description")) {
-            tempImg.setDescription(tempVal);
+            _tempImg.setDescription(_tempVal);
         }
 
 
